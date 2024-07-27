@@ -25,21 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 1;
     let announcements = [];
 
-    // 在文件開頭添加以下函數
-    function sortAnnouncementsByDate(announcements) {
-        return announcements.sort((a, b) => new Date(b.date) - new Date(a.date));
-    }
-
-    // 修改 fetchAnnouncements 函數
-    async function fetchAnnouncements() {
-        try {
-            const response = await fetch('announcements.json');
-            const data = await response.json();
-            return sortAnnouncementsByDate(data); // 對獲取的數據進行排序
-        } catch (error) {
-            console.error('Error fetching announcements:', error);
-            return [];
-        }
+    function fetchAnnouncements() {
+        fetch('announcements.json')
+            .then(response => response.json())
+            .then(data => {
+                announcements = data;
+                displayAnnouncements();
+                updatePagination();
+            })
+            .catch(error => console.error('Error fetching announcements:', error));
     }
 
     function displayAnnouncements() {
