@@ -21,25 +21,75 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const ITEMS_PER_PAGE = 3;
+    let currentPage = 1;
+    let announcements = [];
+
     function fetchAnnouncements() {
         fetch('announcements.json')
             .then(response => response.json())
             .then(data => {
-                const announcementBoard = document.getElementById('announcement-board');
-                data.forEach(announcement => {
-                    const announcementElement = document.createElement('div');
-                    announcementElement.classList.add('announcement');
-                    announcementElement.innerHTML = `
-                        <h3>${announcement.title}</h3>
-                        <p class="date">${announcement.date}</p>
-                        <p>${announcement.content}</p>
-                    `;
-                    announcementBoard.appendChild(announcementElement);
-                });
+                announcements = data;
+                displayAnnouncements();
+                updatePagination();
             })
             .catch(error => console.error('Error fetching announcements:', error));
     }
 
-    // 調用獲取公告的函數
+    function displayAnnouncements() {
+        const announcementBoard = document.getElementById('announcement-board');
+        announcementBoard.innerHTML = '';
+
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        const pageAnnouncements = announcements.slice(startIndex, endIndex);
+
+        const announcementList = document.createElement('ul');
+        announcementList.style.listStyleType = 'none';
+        announcementList.style.padding = '0';
+
+        pageAnnouncements.forEach(announcement => {
+            const announcementItem = document.createElement('li');
+            announcementItem.classList.add('announcement');
+            announcementItem.innerHTML = `
+                <h3>${announcement.title}</h3>
+                <p class="date">${announcement.date}</p>
+                <p>${announcement.content}</p>
+            `;
+            announcementList.appendChild(announcementItem);
+        });
+
+        announcementBoard.appendChild(announcementList);
+    }
+
+    function updatePagination() {
+        const pageInfo = document.getElementById('page-info');
+        const totalPages = Math.ceil(announcements.length / ITEMS_PER_PAGE);
+        pageInfo.textContent = `第 ${currentPage} 頁，共 ${totalPages} 頁`;
+
+        const prevButton = document.getElementById('prev-page');
+        const nextButton = document.getElementById('next-page');
+
+        prevButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages;
+    }
+
     fetchAnnouncements();
+
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayAnnouncements();
+            updatePagination();
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        const totalPages = Math.ceil(announcements.length / ITEMS_PER_PAGE);
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayAnnouncements();
+            updatePagination();
+        }
+    });
 });
