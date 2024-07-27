@@ -203,3 +203,175 @@ a {
     font-size: 0.9em;
     color: #666;
 }
+
+.nav-button {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: black;
+}
+
+.graduation-record {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.graduation-record h3 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.graduation-record ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.graduation-record li {
+    margin-bottom: 5px;
+}
+
+#graduation-pagination {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#graduation-pagination button {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#graduation-pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#graduation-page-info {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.graduation-record .document {
+    margin-top: 10px;
+}
+
+.graduation-record .document a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.graduation-record .document a:hover {
+    text-decoration: underline;
+}
+
+.technical-record {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.technical-record h3 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.technical-record .document {
+    margin-top: 10px;
+}
+
+.technical-record .document a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.technical-record .document a:hover {
+    text-decoration: underline;
+}
+
+#technical-pagination {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#technical-pagination button {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#technical-pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#technical-page-info {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.skill-record {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.skill-record h3 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.skill-record .document {
+    margin-top: 10px;
+}
+
+.skill-record .document a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.skill-record .document a:hover {
+    text-decoration: underline;
+}
+
+#skill-pagination {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#skill-pagination button {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#skill-pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#skill-page-info {
+    font-size: 0.9em;
+    color: #666;
+}

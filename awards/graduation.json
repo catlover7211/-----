@@ -1,0 +1,20 @@
+[
+  {
+    "year": "2023",
+    "title": "2023年度升學榜單",
+    "content": "本年度共有100名學生順利升學，其中80%進入國立大學。",
+    "document": {
+      "filename": "2023年度升學榜單.pdf",
+      "url": "/documents/2023_graduation_list.pdf"
+    }
+  },
+  {
+    "year": "2022",
+    "title": "2022年度升學榜單",
+    "content": "本年度共有95名學生順利升學，其中75%進入國立大學。",
+    "document": {
+      "filename": "2022年度升學榜單.pdf",
+      "url": "/documents/2022_graduation_list.pdf"
+    }
+  }
+]
