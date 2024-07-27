@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 選擇側邊欄和其中的鏈接
     const sidebar = document.querySelector('.sidebar');
     const sidebarLinks = sidebar.querySelectorAll('a');
     const sections = document.querySelectorAll('section');
 
+    // 監聽滾動事件，更新活動鏈接
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach((section) => {
@@ -21,10 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 定義每頁顯示的公告數量和當前頁碼
     const ITEMS_PER_PAGE = 3;
     let currentPage = 1;
     let announcements = [];
 
+    // 從 JSON 文件獲取公告數據
     function fetchAnnouncements() {
         fetch('announcements.json')
             .then(response => response.json())
@@ -36,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error('Error fetching announcements:', error));
     }
 
+    // 顯示當前頁的公告
     function displayAnnouncements() {
         const announcementBoard = document.getElementById('announcement-board');
         announcementBoard.innerHTML = '';
@@ -71,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         announcementBoard.appendChild(announcementList);
     }
 
+    // 更新分頁信息和按鈕狀態
     function updatePagination() {
         const pageInfo = document.getElementById('page-info');
         const totalPages = Math.ceil(announcements.length / ITEMS_PER_PAGE);
@@ -83,8 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
         nextButton.disabled = currentPage === totalPages;
     }
 
+    // 初始獲取公告
     fetchAnnouncements();
 
+    // 為上一頁按鈕添加點擊事件
     document.getElementById('prev-page').addEventListener('click', () => {
         if (currentPage > 1) {
             currentPage--;
@@ -93,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 為下一頁按鈕添加點擊事件
     document.getElementById('next-page').addEventListener('click', () => {
         const totalPages = Math.ceil(announcements.length / ITEMS_PER_PAGE);
         if (currentPage < totalPages) {
