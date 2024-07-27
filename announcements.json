@@ -18,6 +18,14 @@
     "title": "新的電腦教室啟用",
     "date": "2023-04-05",
     "content": "我們很高興地宣布，新的電腦教室已經啟用，歡迎同學們使用。"
+  },
+  {
+    "title": "重要通知",
+    "date": "2023-05-01",
+    "content": "這是一個重要的通知內容。",
+    "attachment": {
+      "filename": "重要文件.pdf",
+      "url": "/document/important_document.pdf"
+    }
   }
-
 ]

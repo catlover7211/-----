@@ -51,10 +51,19 @@ document.addEventListener('DOMContentLoaded', () => {
         pageAnnouncements.forEach(announcement => {
             const announcementItem = document.createElement('li');
             announcementItem.classList.add('announcement');
+            let attachmentHTML = '';
+            if (announcement.attachment) {
+                attachmentHTML = `
+                    <p class="attachment">
+                        附件：<a href="${announcement.attachment.url}" target="_blank">${announcement.attachment.filename}</a>
+                    </p>
+                `;
+            }
             announcementItem.innerHTML = `
                 <h3>${announcement.title}</h3>
                 <p class="date">${announcement.date}</p>
                 <p>${announcement.content}</p>
+                ${attachmentHTML}
             `;
             announcementList.appendChild(announcementItem);
         });
