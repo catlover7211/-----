@@ -1,0 +1,144 @@
+/* 整體佈局 */
+.content-wrapper {
+    display: flex;
+    max-width: none;
+    margin: 0;
+    padding: 20px;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* 標題和子標題 */
+h1, h2, h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 2em;
+    border-left: 5px solid #007bff;
+    padding-left: 15px;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #007bff;
+}
+
+/* 列表樣式 */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+ul li::before {
+    content: "•";
+    color: #007bff;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* 側邊欄列表樣式 */
+.sidebar {
+    width: 70px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    padding-left: 0;
+}
+
+.sidebar ul li::before {
+    content: none;
+}
+
+/* 表格樣式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* 教師團隊 */
+.teacher-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.teacher {
+    flex: 0 0 calc(33.333% - 20px);
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.teacher h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.teacher p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .sidebar {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .teacher {
+        flex: 0 0 100%;
+    }
+}
