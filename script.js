@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 為下一頁按鈕���加點擊事件
+    // 為下一頁按鈕加點擊事件
     document.getElementById('next-page').addEventListener('click', () => {
         const totalPages = Math.ceil(announcements.length / ITEMS_PER_PAGE);
         if (currentPage < totalPages) {
@@ -189,4 +189,31 @@ document.addEventListener('DOMContentLoaded', () => {
             updateAwardsPagination();
         }
     });
+
+    // Carousel functionality
+    const carousel = document.querySelector('.carousel');
+    const images = document.querySelectorAll('.carousel-image');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    const nextButton = document.querySelector('.carousel-button.next');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    });
+
+    // Auto-advance the carousel every 5 seconds
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }, 5000);
 });
