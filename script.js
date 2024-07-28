@@ -1,10 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 選擇側邊欄和其中的鏈接
-    const sidebar = document.querySelector('.sidebar');
-    const sidebarLinks = sidebar.querySelectorAll('a');
+    const sidebarContainer = document.querySelector('.sidebar-container');
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
     const sections = document.querySelectorAll('section');
 
-    // 監聽滾動事件，更新活動鏈接
+    // Toggle sidebar
+    menuToggle.addEventListener('click', () => {
+        sidebarContainer.classList.toggle('active');
+    });
+
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!sidebarContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+            sidebarContainer.classList.remove('active');
+        }
+    });
+
+    // Close sidebar when clicking a link (for mobile)
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                sidebarContainer.classList.remove('active');
+            }
+        });
+    });
+
+    // Existing scroll event listener
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach((section) => {
@@ -101,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 為下一頁按鈕加點擊事件
+    // 為下一頁按鈕事件
     document.getElementById('next-page').addEventListener('click', () => {
         const totalPages = Math.ceil(announcements.length / ITEMS_PER_PAGE);
         if (currentPage < totalPages) {

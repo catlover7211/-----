@@ -1,10 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 選擇側邊欄和其中的鏈接
-    const sidebar = document.querySelector('.sidebar');
-    const sidebarLinks = sidebar.querySelectorAll('a');
+    const sidebarContainer = document.querySelector('.sidebar-container');
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
     const sections = document.querySelectorAll('section');
 
-    // 監聽滾動事件，更新活動鏈接
+    // Toggle sidebar
+    menuToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        sidebarContainer.classList.toggle('active');
+    });
+
+    // Close sidebar when clicking outside (only on mobile)
+    document.addEventListener('click', (event) => {
+        if (window.innerWidth <= 768 && !sidebarContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+            sidebarContainer.classList.remove('active');
+        }
+    });
+
+    // Close sidebar when clicking a link (only on mobile)
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                sidebarContainer.classList.remove('active');
+            }
+        });
+    });
+
+    // Existing scroll event listener
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach((section) => {
