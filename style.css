@@ -206,13 +206,13 @@ a {
 
 .nav-button {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 8px 16px;
     background-color: gray;
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px;
     transition: background-color 0.3s ease;
 }
 
