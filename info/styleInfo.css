@@ -9,7 +9,7 @@
 
 .teacher {
     flex: 0 0 calc(33.333% - 20px); /* 每行顯示三個教師卡片 */
-    background-color: #f8f9fa;
+    background-color: white;
     border-radius: 5px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -20,7 +20,12 @@
     color: #007bff;
 }
 
+.teacher h4 {
+    color: black;
+}
+
 .teacher p {
+    color: black;
     margin: 5px 0;
     font-size: 0.9em;
 }

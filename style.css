@@ -1,11 +1,11 @@
 /* 定義全局變量 */
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --background-color: #f8f9fa;
-  --text-color: #333;
-  --border-color: #ddd;
-  --hover-color: #0056b3;
+  --primary-color: #4da6ff;
+  --secondary-color: #a6a6a6;
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --border-color: #333333;
+  --hover-color: #66b3ff;
 }
 
 /* 基本頁面樣式 */
@@ -18,32 +18,33 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--background-color);
 }
 
 /* 標題樣式 */
 h1 {
   text-align: center;
-  color: #333;
+  color: var(--text-color);
   padding: 20px 0;
   margin: 0;
   background-color: var(--background-color);
   font-size: 2.5em;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid var(--primary-color);
   padding-bottom: 10px;
 }
 
 /* 標題樣式 */
 h2 {
-  color: #333;
+  color: var(--text-color);
   margin-bottom: 20px;
   font-size: 2em;
-  border-left: 5px solid #007bff;
+  border-left: 5px solid var(--primary-color);
   padding-left: 15px;
 }
 
 /* 標題樣式 */
 h3 {
-  color: #007bff;
+  color: var(--primary-color);
   margin-bottom: 20px;
   font-size: 1.5em;
 }
@@ -62,7 +63,7 @@ h3 {
     top: 20px;
     width: 250px;
     height: 100%;
-    background-color: var(--background-color);
+    background-color: #1e1e1e;
     transition: left 0.3s ease-in-out;
     z-index: 1000;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -82,7 +83,7 @@ h3 {
     left: 10px;
     z-index: 1001;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--background-color);
     border: none;
     padding: 10px;
     font-size: 20px;
@@ -141,13 +142,13 @@ h3 {
 /* 側邊欄連結hover樣式 */
 .sidebar a:hover {
     background-color: var(--hover-color);
-    color: white;
+    color: var(--background-color);
 }
 
 /* 側邊欄活躍連結樣式 */
 .sidebar a.active {
     font-weight: bold;
-    color: white;
+    color: var(--background-color);
     background-color: var(--primary-color);
 }
 
@@ -213,7 +214,7 @@ a {
 .announcement h3 {
   margin-top: 0;
   margin-bottom: 5px;
-  color: brown;
+  color: var(--secondary-color);
   font-size: 1.1em;
 }
 
@@ -252,7 +253,7 @@ a {
   margin-right: 10px;
   padding: 5px 10px;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--background-color);
   border: none;
   cursor: pointer;
 }
@@ -291,7 +292,7 @@ a {
 .award h3 {
   margin-top: 0;
   margin-bottom: 5px;
-  color: brown; 
+  color: var(--secondary-color);
   font-size: 1.1em;
 }
 
@@ -313,7 +314,7 @@ a {
   margin-right: 10px;
   padding: 5px 10px;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--background-color);
   border: none;
   cursor: pointer;
 }
@@ -335,7 +336,7 @@ a {
   display: inline-block;
   padding: 10px 20px;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--background-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -395,7 +396,7 @@ a {
   margin: 0 10px;
   padding: 5px 10px;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--background-color);
   border: none;
   cursor: pointer;
 }
@@ -469,7 +470,7 @@ a {
   margin: 0 10px;
   padding: 5px 10px;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--background-color);
   border: none;
   cursor: pointer;
 }
@@ -527,7 +528,7 @@ a {
   margin: 0 10px;
   padding: 5px 10px;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--background-color);
   border: none;
   cursor: pointer;
 }
@@ -538,7 +539,7 @@ a {
   cursor: not-allowed;
 }
 
-/* 技能���錄分頁資訊樣式 */
+/* 技能錄分頁資訊樣式 */
 #skill-page-info {
   font-size: 0.9em;
   color: var(--text-color);
