@@ -44,6 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
     // 定義每頁顯示的公告數量和當前頁碼
     const ITEMS_PER_PAGE = 3;
     let currentPage = 1;
@@ -237,4 +247,34 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = (currentIndex + 1) % images.length;
         showImage(currentIndex);
     }, 5000);
+
+    // Typewriter effect
+    function typeWriter(element, text, i = 0) {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(() => typeWriter(element, text, i), 100);
+        }
+    }
+
+    const title = document.querySelector('h1');
+    const originalText = title.textContent;
+    title.textContent = '';
+    typeWriter(title, originalText);
+
+    // Back to top button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("back-to-top").style.display = "block";
+        } else {
+            document.getElementById("back-to-top").style.display = "none";
+        }
+    }
+
+    document.getElementById("back-to-top").onclick = function() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
 });
